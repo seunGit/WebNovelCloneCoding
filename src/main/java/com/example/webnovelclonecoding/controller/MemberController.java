@@ -2,8 +2,10 @@ package com.example.webnovelclonecoding.controller;
 
 import com.example.webnovelclonecoding.common.dto.ResponseDto;
 import com.example.webnovelclonecoding.dto.MemberCreateReq;
+import com.example.webnovelclonecoding.dto.MemberLoginReq;
 import com.example.webnovelclonecoding.service.MemberService;
 
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -23,5 +25,11 @@ public class MemberController {
     public ResponseEntity<?> signup(@RequestBody MemberCreateReq memberCreateReq) {
         memberService.signup(memberCreateReq);
         return new ResponseEntity<>(new ResponseDto<>("success", "회원가입 성공!", null), HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody MemberLoginReq memberLoginReq, HttpServletResponse httpServletResponse) {
+        memberService.login(memberLoginReq, httpServletResponse);
+        return new ResponseEntity<>(new ResponseDto<>("success", "로그인 성공!", null), HttpStatus.OK);
     }
 }

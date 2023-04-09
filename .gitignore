@@ -37,4 +37,7 @@ out/
 .vscode/
 
 ### MySQL ###
+src/main/resources/application-mysql.properties
 
+### JWT ###
+src/main/resources/application-jwt.properties

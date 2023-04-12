@@ -1,4 +1,4 @@
-package com.example.webnovelclonecoding.entity;
+package com.example.webnovelclonecoding.member.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

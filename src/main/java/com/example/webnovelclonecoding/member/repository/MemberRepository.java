@@ -1,6 +1,6 @@
-package com.example.webnovelclonecoding.repository;
+package com.example.webnovelclonecoding.member.repository;
 
-import com.example.webnovelclonecoding.entity.Member;
+import com.example.webnovelclonecoding.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

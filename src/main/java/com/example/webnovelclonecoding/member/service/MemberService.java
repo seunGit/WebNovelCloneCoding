@@ -1,16 +1,19 @@
-package com.example.webnovelclonecoding.service;
+package com.example.webnovelclonecoding.member.service;
 
 import com.example.webnovelclonecoding.common.jwt.JwtUtil;
-import com.example.webnovelclonecoding.dto.MemberCreateReq;
-import com.example.webnovelclonecoding.dto.MemberLoginReq;
-import com.example.webnovelclonecoding.entity.Member;
-import com.example.webnovelclonecoding.repository.MemberRepository;
+import com.example.webnovelclonecoding.member.dto.MemberCreateReq;
+import com.example.webnovelclonecoding.member.dto.MemberLoginReq;
+import com.example.webnovelclonecoding.member.entity.Member;
+import com.example.webnovelclonecoding.member.repository.MemberRepository;
 
 import jakarta.servlet.http.HttpServletResponse;
+
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.NoSuchElementException;
 
 import static com.example.webnovelclonecoding.common.exception.ExceptionMessage.*;
 
@@ -36,10 +39,10 @@ public class MemberService {
     @Transactional(readOnly = true)
     public void login(MemberLoginReq memberLoginReq, HttpServletResponse httpServletResponse) {
         Member member = memberRepository.findByUsername(memberLoginReq.getUsername()).orElseThrow(
-                () -> new IllegalArgumentException(NOT_FOUND_MEMBER_MSG.getMsg())
+                () -> new NoSuchElementException(NOT_FOUND_MEMBER_MSG.getMsg())
         );
         if (!member.getPassword().equals(memberLoginReq.getPassword())) {
-            throw new IllegalArgumentException(NOT_MATCH_PASSWORD_MSG.getMsg());
+            throw new NoSuchElementException(NOT_MATCH_PASSWORD_MSG.getMsg());
         }
         httpServletResponse.addHeader(JwtUtil.AUTHORIZATION_HEADER, jwtUtil.createToken(member.getId()));
     }

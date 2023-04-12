@@ -1,6 +1,6 @@
-package com.example.webnovelclonecoding.dto;
+package com.example.webnovelclonecoding.member.dto;
 
-import com.example.webnovelclonecoding.entity.Member;
+import com.example.webnovelclonecoding.member.entity.Member;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

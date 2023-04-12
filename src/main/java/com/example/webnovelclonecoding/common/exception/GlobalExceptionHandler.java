@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.NoSuchElementException;
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -18,6 +20,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = IllegalArgumentException.class)
     public ResponseEntity IllegalArgumentExceptionHandler(Exception e) {
+        logger.error("", e);
+        ResponseDto response = new ResponseDto("fail", e.getMessage(), null);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = NoSuchElementException.class)
+    public ResponseEntity NoSuchElementExceptionHandler(Exception e) {
         logger.error("", e);
         ResponseDto response = new ResponseDto("fail", e.getMessage(), null);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);

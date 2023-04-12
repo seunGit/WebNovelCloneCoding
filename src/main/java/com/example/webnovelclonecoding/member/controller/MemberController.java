@@ -1,9 +1,9 @@
-package com.example.webnovelclonecoding.controller;
+package com.example.webnovelclonecoding.member.controller;
 
 import com.example.webnovelclonecoding.common.dto.ResponseDto;
-import com.example.webnovelclonecoding.dto.MemberCreateReq;
-import com.example.webnovelclonecoding.dto.MemberLoginReq;
-import com.example.webnovelclonecoding.service.MemberService;
+import com.example.webnovelclonecoding.member.dto.MemberCreateReq;
+import com.example.webnovelclonecoding.member.dto.MemberLoginReq;
+import com.example.webnovelclonecoding.member.service.MemberService;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

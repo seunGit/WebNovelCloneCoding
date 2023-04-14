@@ -11,7 +11,9 @@ public enum ExceptionMessage {
     NOT_MATCH_PASSWORD_MSG("비밀번호가 일치하지 않습니다."),
     NOT_AUTHOR_MEMBER_MSG("접근 권한이 없습니다."),
     // Novel
-    NOT_FOUND_NOVEL_MSG("소설을 찾을 수 없습니다.");
+    NOT_FOUND_NOVEL_MSG("소설을 찾을 수 없습니다."),
+    // Episode
+    NOT_FOUND_EPISODE_MSG("에피소드를 찾을 수 없습니다.");
     private final String msg;
     ExceptionMessage(String msg) {
         this.msg = msg;

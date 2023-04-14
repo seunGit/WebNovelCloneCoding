@@ -25,15 +25,12 @@ public class Novel extends Timestamped {
 
     private String description;
 
-    private Long memberId;
-
     @Builder
-    public Novel(Long id, String title, String image, String description, Long memberId) {
+    public Novel(Long id, String title, String image, String description) {
         this.id = id;
         this.title = title;
         this.image = image;
         this.description = description;
-        this.memberId = memberId;
     }
 
     public void update(String title, String image, String description) {
